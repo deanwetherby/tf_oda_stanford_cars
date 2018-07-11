@@ -30,7 +30,7 @@ Create the train and test tfrecords from the Stanford Cars annotations. Making p
 
 ## TensorBoard screenshot
 
-![tensorboard evaluation](https://raw.githubusercontent.com/deanwetherby/tf_oda_stanford_cars/tensorboard_stanford_cars.png)
+![tensorboard evaluation](tensorboard_stanford_cars.png)
 
 
 ## References
