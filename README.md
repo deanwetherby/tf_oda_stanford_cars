@@ -11,8 +11,8 @@ http://imagenet.stanford.edu/internal/car196/car_ims.tgz
 
 Clone this repo.
 ```
-git clone https://github.com/deanwetherby/tf_oda_stanford_cars
-cd tf_oda_stanford_cars
+$ git clone https://github.com/deanwetherby/tf_oda_stanford_cars
+$ cd tf_oda_stanford_cars
 ```
 
 Create the train and test tfrecords from the Stanford Cars annotations. Making pbtxt label file contains hard-coded paths but the labels file is already provided for you.
