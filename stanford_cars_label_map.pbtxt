@@ -1,0 +1,980 @@
+item {
+  id: 1
+  name: 'AM General Hummer SUV 2000'
+}
+
+item {
+  id: 2
+  name: 'Acura RL Sedan 2012'
+}
+
+item {
+  id: 3
+  name: 'Acura TL Sedan 2012'
+}
+
+item {
+  id: 4
+  name: 'Acura TL Type-S 2008'
+}
+
+item {
+  id: 5
+  name: 'Acura TSX Sedan 2012'
+}
+
+item {
+  id: 6
+  name: 'Acura Integra Type R 2001'
+}
+
+item {
+  id: 7
+  name: 'Acura ZDX Hatchback 2012'
+}
+
+item {
+  id: 8
+  name: 'Aston Martin V8 Vantage Convertible 2012'
+}
+
+item {
+  id: 9
+  name: 'Aston Martin V8 Vantage Coupe 2012'
+}
+
+item {
+  id: 10
+  name: 'Aston Martin Virage Convertible 2012'
+}
+
+item {
+  id: 11
+  name: 'Aston Martin Virage Coupe 2012'
+}
+
+item {
+  id: 12
+  name: 'Audi RS 4 Convertible 2008'
+}
+
+item {
+  id: 13
+  name: 'Audi A5 Coupe 2012'
+}
+
+item {
+  id: 14
+  name: 'Audi TTS Coupe 2012'
+}
+
+item {
+  id: 15
+  name: 'Audi R8 Coupe 2012'
+}
+
+item {
+  id: 16
+  name: 'Audi V8 Sedan 1994'
+}
+
+item {
+  id: 17
+  name: 'Audi 100 Sedan 1994'
+}
+
+item {
+  id: 18
+  name: 'Audi 100 Wagon 1994'
+}
+
+item {
+  id: 19
+  name: 'Audi TT Hatchback 2011'
+}
+
+item {
+  id: 20
+  name: 'Audi S6 Sedan 2011'
+}
+
+item {
+  id: 21
+  name: 'Audi S5 Convertible 2012'
+}
+
+item {
+  id: 22
+  name: 'Audi S5 Coupe 2012'
+}
+
+item {
+  id: 23
+  name: 'Audi S4 Sedan 2012'
+}
+
+item {
+  id: 24
+  name: 'Audi S4 Sedan 2007'
+}
+
+item {
+  id: 25
+  name: 'Audi TT RS Coupe 2012'
+}
+
+item {
+  id: 26
+  name: 'BMW ActiveHybrid 5 Sedan 2012'
+}
+
+item {
+  id: 27
+  name: 'BMW 1 Series Convertible 2012'
+}
+
+item {
+  id: 28
+  name: 'BMW 1 Series Coupe 2012'
+}
+
+item {
+  id: 29
+  name: 'BMW 3 Series Sedan 2012'
+}
+
+item {
+  id: 30
+  name: 'BMW 3 Series Wagon 2012'
+}
+
+item {
+  id: 31
+  name: 'BMW 6 Series Convertible 2007'
+}
+
+item {
+  id: 32
+  name: 'BMW X5 SUV 2007'
+}
+
+item {
+  id: 33
+  name: 'BMW X6 SUV 2012'
+}
+
+item {
+  id: 34
+  name: 'BMW M3 Coupe 2012'
+}
+
+item {
+  id: 35
+  name: 'BMW M5 Sedan 2010'
+}
+
+item {
+  id: 36
+  name: 'BMW M6 Convertible 2010'
+}
+
+item {
+  id: 37
+  name: 'BMW X3 SUV 2012'
+}
+
+item {
+  id: 38
+  name: 'BMW Z4 Convertible 2012'
+}
+
+item {
+  id: 39
+  name: 'Bentley Continental Supersports Conv. Convertible 2012'
+}
+
+item {
+  id: 40
+  name: 'Bentley Arnage Sedan 2009'
+}
+
+item {
+  id: 41
+  name: 'Bentley Mulsanne Sedan 2011'
+}
+
+item {
+  id: 42
+  name: 'Bentley Continental GT Coupe 2012'
+}
+
+item {
+  id: 43
+  name: 'Bentley Continental GT Coupe 2007'
+}
+
+item {
+  id: 44
+  name: 'Bentley Continental Flying Spur Sedan 2007'
+}
+
+item {
+  id: 45
+  name: 'Bugatti Veyron 16.4 Convertible 2009'
+}
+
+item {
+  id: 46
+  name: 'Bugatti Veyron 16.4 Coupe 2009'
+}
+
+item {
+  id: 47
+  name: 'Buick Regal GS 2012'
+}
+
+item {
+  id: 48
+  name: 'Buick Rainier SUV 2007'
+}
+
+item {
+  id: 49
+  name: 'Buick Verano Sedan 2012'
+}
+
+item {
+  id: 50
+  name: 'Buick Enclave SUV 2012'
+}
+
+item {
+  id: 51
+  name: 'Cadillac CTS-V Sedan 2012'
+}
+
+item {
+  id: 52
+  name: 'Cadillac SRX SUV 2012'
+}
+
+item {
+  id: 53
+  name: 'Cadillac Escalade EXT Crew Cab 2007'
+}
+
+item {
+  id: 54
+  name: 'Chevrolet Silverado 1500 Hybrid Crew Cab 2012'
+}
+
+item {
+  id: 55
+  name: 'Chevrolet Corvette Convertible 2012'
+}
+
+item {
+  id: 56
+  name: 'Chevrolet Corvette ZR1 2012'
+}
+
+item {
+  id: 57
+  name: 'Chevrolet Corvette Ron Fellows Edition Z06 2007'
+}
+
+item {
+  id: 58
+  name: 'Chevrolet Traverse SUV 2012'
+}
+
+item {
+  id: 59
+  name: 'Chevrolet Camaro Convertible 2012'
+}
+
+item {
+  id: 60
+  name: 'Chevrolet HHR SS 2010'
+}
+
+item {
+  id: 61
+  name: 'Chevrolet Impala Sedan 2007'
+}
+
+item {
+  id: 62
+  name: 'Chevrolet Tahoe Hybrid SUV 2012'
+}
+
+item {
+  id: 63
+  name: 'Chevrolet Sonic Sedan 2012'
+}
+
+item {
+  id: 64
+  name: 'Chevrolet Express Cargo Van 2007'
+}
+
+item {
+  id: 65
+  name: 'Chevrolet Avalanche Crew Cab 2012'
+}
+
+item {
+  id: 66
+  name: 'Chevrolet Cobalt SS 2010'
+}
+
+item {
+  id: 67
+  name: 'Chevrolet Malibu Hybrid Sedan 2010'
+}
+
+item {
+  id: 68
+  name: 'Chevrolet TrailBlazer SS 2009'
+}
+
+item {
+  id: 69
+  name: 'Chevrolet Silverado 2500HD Regular Cab 2012'
+}
+
+item {
+  id: 70
+  name: 'Chevrolet Silverado 1500 Classic Extended Cab 2007'
+}
+
+item {
+  id: 71
+  name: 'Chevrolet Express Van 2007'
+}
+
+item {
+  id: 72
+  name: 'Chevrolet Monte Carlo Coupe 2007'
+}
+
+item {
+  id: 73
+  name: 'Chevrolet Malibu Sedan 2007'
+}
+
+item {
+  id: 74
+  name: 'Chevrolet Silverado 1500 Extended Cab 2012'
+}
+
+item {
+  id: 75
+  name: 'Chevrolet Silverado 1500 Regular Cab 2012'
+}
+
+item {
+  id: 76
+  name: 'Chrysler Aspen SUV 2009'
+}
+
+item {
+  id: 77
+  name: 'Chrysler Sebring Convertible 2010'
+}
+
+item {
+  id: 78
+  name: 'Chrysler Town and Country Minivan 2012'
+}
+
+item {
+  id: 79
+  name: 'Chrysler 300 SRT-8 2010'
+}
+
+item {
+  id: 80
+  name: 'Chrysler Crossfire Convertible 2008'
+}
+
+item {
+  id: 81
+  name: 'Chrysler PT Cruiser Convertible 2008'
+}
+
+item {
+  id: 82
+  name: 'Daewoo Nubira Wagon 2002'
+}
+
+item {
+  id: 83
+  name: 'Dodge Caliber Wagon 2012'
+}
+
+item {
+  id: 84
+  name: 'Dodge Caliber Wagon 2007'
+}
+
+item {
+  id: 85
+  name: 'Dodge Caravan Minivan 1997'
+}
+
+item {
+  id: 86
+  name: 'Dodge Ram Pickup 3500 Crew Cab 2010'
+}
+
+item {
+  id: 87
+  name: 'Dodge Ram Pickup 3500 Quad Cab 2009'
+}
+
+item {
+  id: 88
+  name: 'Dodge Sprinter Cargo Van 2009'
+}
+
+item {
+  id: 89
+  name: 'Dodge Journey SUV 2012'
+}
+
+item {
+  id: 90
+  name: 'Dodge Dakota Crew Cab 2010'
+}
+
+item {
+  id: 91
+  name: 'Dodge Dakota Club Cab 2007'
+}
+
+item {
+  id: 92
+  name: 'Dodge Magnum Wagon 2008'
+}
+
+item {
+  id: 93
+  name: 'Dodge Challenger SRT8 2011'
+}
+
+item {
+  id: 94
+  name: 'Dodge Durango SUV 2012'
+}
+
+item {
+  id: 95
+  name: 'Dodge Durango SUV 2007'
+}
+
+item {
+  id: 96
+  name: 'Dodge Charger Sedan 2012'
+}
+
+item {
+  id: 97
+  name: 'Dodge Charger SRT-8 2009'
+}
+
+item {
+  id: 98
+  name: 'Eagle Talon Hatchback 1998'
+}
+
+item {
+  id: 99
+  name: 'FIAT 500 Abarth 2012'
+}
+
+item {
+  id: 100
+  name: 'FIAT 500 Convertible 2012'
+}
+
+item {
+  id: 101
+  name: 'Ferrari FF Coupe 2012'
+}
+
+item {
+  id: 102
+  name: 'Ferrari California Convertible 2012'
+}
+
+item {
+  id: 103
+  name: 'Ferrari 458 Italia Convertible 2012'
+}
+
+item {
+  id: 104
+  name: 'Ferrari 458 Italia Coupe 2012'
+}
+
+item {
+  id: 105
+  name: 'Fisker Karma Sedan 2012'
+}
+
+item {
+  id: 106
+  name: 'Ford F-450 Super Duty Crew Cab 2012'
+}
+
+item {
+  id: 107
+  name: 'Ford Mustang Convertible 2007'
+}
+
+item {
+  id: 108
+  name: 'Ford Freestar Minivan 2007'
+}
+
+item {
+  id: 109
+  name: 'Ford Expedition EL SUV 2009'
+}
+
+item {
+  id: 110
+  name: 'Ford Edge SUV 2012'
+}
+
+item {
+  id: 111
+  name: 'Ford Ranger SuperCab 2011'
+}
+
+item {
+  id: 112
+  name: 'Ford GT Coupe 2006'
+}
+
+item {
+  id: 113
+  name: 'Ford F-150 Regular Cab 2012'
+}
+
+item {
+  id: 114
+  name: 'Ford F-150 Regular Cab 2007'
+}
+
+item {
+  id: 115
+  name: 'Ford Focus Sedan 2007'
+}
+
+item {
+  id: 116
+  name: 'Ford E-Series Wagon Van 2012'
+}
+
+item {
+  id: 117
+  name: 'Ford Fiesta Sedan 2012'
+}
+
+item {
+  id: 118
+  name: 'GMC Terrain SUV 2012'
+}
+
+item {
+  id: 119
+  name: 'GMC Savana Van 2012'
+}
+
+item {
+  id: 120
+  name: 'GMC Yukon Hybrid SUV 2012'
+}
+
+item {
+  id: 121
+  name: 'GMC Acadia SUV 2012'
+}
+
+item {
+  id: 122
+  name: 'GMC Canyon Extended Cab 2012'
+}
+
+item {
+  id: 123
+  name: 'Geo Metro Convertible 1993'
+}
+
+item {
+  id: 124
+  name: 'HUMMER H3T Crew Cab 2010'
+}
+
+item {
+  id: 125
+  name: 'HUMMER H2 SUT Crew Cab 2009'
+}
+
+item {
+  id: 126
+  name: 'Honda Odyssey Minivan 2012'
+}
+
+item {
+  id: 127
+  name: 'Honda Odyssey Minivan 2007'
+}
+
+item {
+  id: 128
+  name: 'Honda Accord Coupe 2012'
+}
+
+item {
+  id: 129
+  name: 'Honda Accord Sedan 2012'
+}
+
+item {
+  id: 130
+  name: 'Hyundai Veloster Hatchback 2012'
+}
+
+item {
+  id: 131
+  name: 'Hyundai Santa Fe SUV 2012'
+}
+
+item {
+  id: 132
+  name: 'Hyundai Tucson SUV 2012'
+}
+
+item {
+  id: 133
+  name: 'Hyundai Veracruz SUV 2012'
+}
+
+item {
+  id: 134
+  name: 'Hyundai Sonata Hybrid Sedan 2012'
+}
+
+item {
+  id: 135
+  name: 'Hyundai Elantra Sedan 2007'
+}
+
+item {
+  id: 136
+  name: 'Hyundai Accent Sedan 2012'
+}
+
+item {
+  id: 137
+  name: 'Hyundai Genesis Sedan 2012'
+}
+
+item {
+  id: 138
+  name: 'Hyundai Sonata Sedan 2012'
+}
+
+item {
+  id: 139
+  name: 'Hyundai Elantra Touring Hatchback 2012'
+}
+
+item {
+  id: 140
+  name: 'Hyundai Azera Sedan 2012'
+}
+
+item {
+  id: 141
+  name: 'Infiniti G Coupe IPL 2012'
+}
+
+item {
+  id: 142
+  name: 'Infiniti QX56 SUV 2011'
+}
+
+item {
+  id: 143
+  name: 'Isuzu Ascender SUV 2008'
+}
+
+item {
+  id: 144
+  name: 'Jaguar XK XKR 2012'
+}
+
+item {
+  id: 145
+  name: 'Jeep Patriot SUV 2012'
+}
+
+item {
+  id: 146
+  name: 'Jeep Wrangler SUV 2012'
+}
+
+item {
+  id: 147
+  name: 'Jeep Liberty SUV 2012'
+}
+
+item {
+  id: 148
+  name: 'Jeep Grand Cherokee SUV 2012'
+}
+
+item {
+  id: 149
+  name: 'Jeep Compass SUV 2012'
+}
+
+item {
+  id: 150
+  name: 'Lamborghini Reventon Coupe 2008'
+}
+
+item {
+  id: 151
+  name: 'Lamborghini Aventador Coupe 2012'
+}
+
+item {
+  id: 152
+  name: 'Lamborghini Gallardo LP 570-4 Superleggera 2012'
+}
+
+item {
+  id: 153
+  name: 'Lamborghini Diablo Coupe 2001'
+}
+
+item {
+  id: 154
+  name: 'Land Rover Range Rover SUV 2012'
+}
+
+item {
+  id: 155
+  name: 'Land Rover LR2 SUV 2012'
+}
+
+item {
+  id: 156
+  name: 'Lincoln Town Car Sedan 2011'
+}
+
+item {
+  id: 157
+  name: 'MINI Cooper Roadster Convertible 2012'
+}
+
+item {
+  id: 158
+  name: 'Maybach Landaulet Convertible 2012'
+}
+
+item {
+  id: 159
+  name: 'Mazda Tribute SUV 2011'
+}
+
+item {
+  id: 160
+  name: 'McLaren MP4-12C Coupe 2012'
+}
+
+item {
+  id: 161
+  name: 'Mercedes-Benz 300-Class Convertible 1993'
+}
+
+item {
+  id: 162
+  name: 'Mercedes-Benz C-Class Sedan 2012'
+}
+
+item {
+  id: 163
+  name: 'Mercedes-Benz SL-Class Coupe 2009'
+}
+
+item {
+  id: 164
+  name: 'Mercedes-Benz E-Class Sedan 2012'
+}
+
+item {
+  id: 165
+  name: 'Mercedes-Benz S-Class Sedan 2012'
+}
+
+item {
+  id: 166
+  name: 'Mercedes-Benz Sprinter Van 2012'
+}
+
+item {
+  id: 167
+  name: 'Mitsubishi Lancer Sedan 2012'
+}
+
+item {
+  id: 168
+  name: 'Nissan Leaf Hatchback 2012'
+}
+
+item {
+  id: 169
+  name: 'Nissan NV Passenger Van 2012'
+}
+
+item {
+  id: 170
+  name: 'Nissan Juke Hatchback 2012'
+}
+
+item {
+  id: 171
+  name: 'Nissan 240SX Coupe 1998'
+}
+
+item {
+  id: 172
+  name: 'Plymouth Neon Coupe 1999'
+}
+
+item {
+  id: 173
+  name: 'Porsche Panamera Sedan 2012'
+}
+
+item {
+  id: 174
+  name: 'Ram C/V Cargo Van Minivan 2012'
+}
+
+item {
+  id: 175
+  name: 'Rolls-Royce Phantom Drophead Coupe Convertible 2012'
+}
+
+item {
+  id: 176
+  name: 'Rolls-Royce Ghost Sedan 2012'
+}
+
+item {
+  id: 177
+  name: 'Rolls-Royce Phantom Sedan 2012'
+}
+
+item {
+  id: 178
+  name: 'Scion xD Hatchback 2012'
+}
+
+item {
+  id: 179
+  name: 'Spyker C8 Convertible 2009'
+}
+
+item {
+  id: 180
+  name: 'Spyker C8 Coupe 2009'
+}
+
+item {
+  id: 181
+  name: 'Suzuki Aerio Sedan 2007'
+}
+
+item {
+  id: 182
+  name: 'Suzuki Kizashi Sedan 2012'
+}
+
+item {
+  id: 183
+  name: 'Suzuki SX4 Hatchback 2012'
+}
+
+item {
+  id: 184
+  name: 'Suzuki SX4 Sedan 2012'
+}
+
+item {
+  id: 185
+  name: 'Tesla Model S Sedan 2012'
+}
+
+item {
+  id: 186
+  name: 'Toyota Sequoia SUV 2012'
+}
+
+item {
+  id: 187
+  name: 'Toyota Camry Sedan 2012'
+}
+
+item {
+  id: 188
+  name: 'Toyota Corolla Sedan 2012'
+}
+
+item {
+  id: 189
+  name: 'Toyota 4Runner SUV 2012'
+}
+
+item {
+  id: 190
+  name: 'Volkswagen Golf Hatchback 2012'
+}
+
+item {
+  id: 191
+  name: 'Volkswagen Golf Hatchback 1991'
+}
+
+item {
+  id: 192
+  name: 'Volkswagen Beetle Hatchback 2012'
+}
+
+item {
+  id: 193
+  name: 'Volvo C30 Hatchback 2012'
+}
+
+item {
+  id: 194
+  name: 'Volvo 240 Sedan 1993'
+}
+
+item {
+  id: 195
+  name: 'Volvo XC90 SUV 2007'
+}
+
+item {
+  id: 196
+  name: 'smart fortwo Convertible 2012'
+}
+
