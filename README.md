@@ -28,7 +28,26 @@ Create the train and test tfrecords from the Stanford Cars annotations. Making p
 (tf) $ python dump.py
 ```
 
-## TensorBoard screenshot
+## Train
+
+I have trained using various networks such as faster rcnn and ssd mobilenet (v1 and v2). All exhibit the same issue. In this repo is the faster rcnn pipeline.config used for one of the training sessions.
+
+
+```
+(tf) $ python ~/workspace/models/research/object_detection/train.py --logtostderr --pipeline_config_path=models/faster_rcnn_resnet50_coco_2018_01_28/pipeline.config --train_dir=output
+```
+
+## Eval
+
+Evaluate the trained model.
+
+```
+(tf) $ python ~/workspace/models/research/object_detection/eval.py --logtostderr --pipeline_config_path=/home/HQ/dwetherby/workspace/stanford_cars/models/ssd_mobilenet_v1_coco_2017_11_17/pipeline.config --eval_dir=/home/HQ/dwetherby/workspace/stanford_cars/eval --checkpoint_dir=/home/HQ/dwetherby/workspace/stanford_cars/output 
+```
+
+I run tensorboard to during eval to watch the localization and the classification prediction. Boxes seem to work well but the model picks a single class for every training session and all vehicles become that single class. The screenshot below shows an interation where every vehicle was classified as an Audi R8.
+
+### TensorBoard screenshot
 
 ![tensorboard evaluation](tensorboard_stanford_cars.png)
 
