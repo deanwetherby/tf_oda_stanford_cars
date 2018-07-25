@@ -71,7 +71,7 @@ Here are a few images with detection.
 
 ![BMW M3 Coupe](markup/002761.jpg)
 ![Dodge Ram Pickup 3500](markup/006986.jpg)
-![Honda Odyssey Minivan](markup/010354.jpg)
+![Honda Odyssey Minivan](markup/010354.jpg | width=250)
 
 
 ## To Do
