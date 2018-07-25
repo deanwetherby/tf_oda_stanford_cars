@@ -73,7 +73,6 @@ Here are a few images with detection.
 ![Dodge Ram Pickup 3500](markup/006986.jpg)
 ![Honda Odyssey Minivan](markup/010354.jpg)
 
-
 ## To Do
 
 Continue improving model training.
