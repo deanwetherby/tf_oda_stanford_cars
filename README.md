@@ -62,6 +62,8 @@ Create the train and test tfrecords from the Stanford Cars annotations. Their tr
 (tf) $ python dump.py --input_file stanford_cars_test.tfrecord --output_path ./test 
 ```
 
+## Training the vehicle model
+
 ### Download pretrained model
 
 Download a pretrained model from the model zoo [3] and untar to your models folder. I used SSD MobileNet v2 for this project.
@@ -70,19 +72,13 @@ Download a pretrained model from the model zoo [3] and untar to your models fold
 
 Change the number of classes in the pipeline.config associated with your model to 196 to match the number of classes in Stanford Cars. Also update the paths to your fine tune checkpoint and labels file for both train and eval. You will have to remove any references to "batch_norm_trainable: true" from the config file. This feature has been deprecated and will prevent success training.
 
-## Training the vehicle model
+### Train the model
+
+Use TensorFlow's model_main.py to train the model. This is TensorFlow's "easy" button for training deep learning models. Be sure to replace the model folder with your path.
 
 ```
-(tf) $ python ~/workspace/models/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
+(tf) $ PYTHONPATH=<model folder>/research/:<model folder>/research/slim python <model folder>/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
 ```
-
-```
-(tf) $ PYTHONPATH=/home/edge/git/models-fresh/research/:/home/edge/git/models-fresh/research/slim python ~/git/models-fresh/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
-```
-
-## Evaluation
-
-There's no eval.py script in the new version of the Object Detection API. So we will convert the checkpoint to a pb file and run prediction on a few example images just to get a visual indication of how well it is doing.
 
 ### Convert the checkpoint to frozen graph (.pb file)
 
@@ -90,7 +86,12 @@ There's no eval.py script in the new version of the Object Detection API. So we 
 (tf) $ python -u ~/workspace/models/research/object_detection/export_inference_graph.py --input_type=image_tensor --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix=output/model.ckpt-100000 --output_directory=./stanford_cars_inference_graph/
 ```
 
+## Evaluation
+
+There's no eval.py script in the new version of the Object Detection API. So we will convert the checkpoint to a pb file and run prediction on a few example images just to get a visual indication of how well it is doing.
+
 ### Prediction on an example image
+
 
 ```
 (tf) $ python predict_image.py --model stanford_cars_inference_graph/frozen_inference_graph.pb --labels stanford_cars_labels_map.pbtxt --image image0.jpg 
