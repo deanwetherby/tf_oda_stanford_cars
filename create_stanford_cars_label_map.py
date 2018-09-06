@@ -1,6 +1,10 @@
 import sys
 import scipy.io as sio
 
+if (len(sys.argv) < 2):
+  print('Missing argument: path to cars_annos.mat file')
+  sys.exit(1)
+
 annotation_file = sys.argv[1]
 mat = sio.loadmat(annotation_file)
 

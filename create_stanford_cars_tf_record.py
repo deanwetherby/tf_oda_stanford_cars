@@ -3,7 +3,15 @@ r"""Convert raw Stanford Cars dataset to TFRecord for object_detection.
 Example usage:
     python create_stanford_cars_tf_record.py \
         --data_dir=/data/StanfordCars \
-        --output_path=/home/user/pascal.record
+        --output_path=stanford_cars_train.tfrecord \
+        --set=train \
+        --label_map_path=stanford_cars_label_map.pbtxt
+
+    python create_stanford_cars_tf_record.py \
+        --data_dir=/data/StanfordCars \
+        --output_path=stanford_cars_test.tfrecord \
+        --set=test \
+        --label_map_path=stanford_cars_label_map.pbtxt
 """
 from __future__ import absolute_import
 from __future__ import division
