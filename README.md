@@ -61,7 +61,7 @@ There's no eval.py script in the new version of the Object Detection API. So we 
 (tf) $ python -u ~/workspace/models/research/object_detection/export_inference_graph.py --input_type=image_tensor --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix=output/model.ckpt-100000 --output_directory=./stanford_cars_inference_graph/
 ```
 
-The predict script uses hard-coded paths so you'll have to modify for your needs. The script samples 60 images randomly from the data folder and outputs the image detections in the markups folder.
+The predict script uses hard-coded paths so you'll have to modify for your needs. The script samples 60 images randomly from the data folder and outputs the image detections in the results folder.
 
 ```
 (tf) $ python predict_image.py 
@@ -69,9 +69,9 @@ The predict script uses hard-coded paths so you'll have to modify for your needs
 
 Here are a few images with detection.
 
-![BMW M3 Coupe](markup/002761.jpg)
-![Dodge Ram Pickup 3500](markup/006986.jpg)
-![Honda Odyssey Minivan](markup/010354.jpg)
+![BMW M3 Coupe](results/002761.jpg)
+![Dodge Ram Pickup 3500](results/006986.jpg)
+![Honda Odyssey Minivan](results/010354.jpg)
 
 ## To Do
 

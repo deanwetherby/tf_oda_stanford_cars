@@ -2,11 +2,12 @@ import os
 import cv2
 import tensorflow as tf
 
+# TODO input tfrecord and output path
 tfrecords_filename = 'stanford_cars_test.tfrecord'
 output_path = './temp'
+
 #get the number of records in the tfrecord file
 c = 0
-
 for record in tf.python_io.tf_record_iterator(tfrecords_filename):
     c += 1
 
