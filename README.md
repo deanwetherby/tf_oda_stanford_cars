@@ -2,6 +2,14 @@
 
 Use Google's TensorFlow Object Detection API [0] to detect 196 vehicles types in the Stanford Cars dataset [1]. 
 
+## Dependencies
+
+The Stanford Cars project is dependent on the TensorFlow Object Detection API and all of it's requirements. Mainly:
+
+* Python 2.7
+* Protobuf 3.0.0
+* Tensorflow (>=1.9.0)
+
 ## Getting Started
 
 Download the Stanford Cars dataset.
