@@ -50,26 +50,26 @@ def dump_records(tfrecords_filename, output_path):
       print("going to restore {} files from {}".format(num_images, tfrecords_filename))
       for i in range(num_images):
   
-          im_,fName,text_,label_ = sess.run([image,fileName,text,label])
-  	print(fName, text_, label_)
+        im_,fName,text_,label_ = sess.run([image,fileName,text,label])
+        print(fName, text_, label_)
   
-          savePath=os.path.join(output_path,text_)
-          if not os.path.exists(savePath):
-              os.makedirs(savePath)
-          base = os.path.basename(fName)
-          fName_=os.path.join(savePath, base)
+        savePath=os.path.join(output_path,text_)
+        if not os.path.exists(savePath):
+          os.makedirs(savePath)
+        
+        base   = os.path.basename(fName)
+        fName_ = os.path.join(savePath, base)
   
-  	print('saving {} to {}'.format(base, savePath))
+        print('saving {} to {}'.format(base, savePath))
   
-          # change the image save path here
-          cv2.imwrite(fName_ , im_)
-  
-  
+        # change the image save path here
+        cv2.imwrite(fName_ , im_)
+    
       coord.request_stop()
       coord.join(threads)
 
 
-def main():
+def main(_):
   tfrecord = FLAGS.input_file
   output_path = FLAGS.output_path
   dump_records(tfrecord, output_path)

@@ -21,6 +21,7 @@ import tensorflow as tf
 
 from object_detection.utils import label_map_util
 from object_detection.utils import ops as utils_ops
+from object_detection.utils import visualization_utils as vis_util
 
 flags = tf.app.flags
 flags.DEFINE_string('model','stanford_cars_inference_graph/frozen_inference_graph.pb','Frozen graph file')
@@ -87,7 +88,7 @@ def run_inference_for_single_image(image, graph):
   return output_dict
 
 
-def main():
+def main(_):
   if not FLAGS.image:
     print("No image path provided to predict on")
     print("Expected --image <image_path> as argument")
@@ -117,8 +118,19 @@ def main():
   print(output_dict['detection_scores'][0], output_dict['detection_classes'][0])
   print(category_index[output_dict['detection_classes'][0]]['name'])
 
+  # Visualization of the results of a detection.
+  vis_util.visualize_boxes_and_labels_on_image_array(
+      image_np,
+      output_dict['detection_boxes'],
+      output_dict['detection_classes'],
+      output_dict['detection_scores'],
+      category_index,
+      instance_masks=output_dict.get('detection_masks'),
+      use_normalized_coordinates=True,
+      line_thickness=8)
+
   myim = Image.fromarray(image_np)
-  myim_basename = os.path.basename(image_path)
+  myim_basename = os.path.basename(FLAGS.image)
   myim.save(os.path.join('./results', myim_basename)) 
 
 
