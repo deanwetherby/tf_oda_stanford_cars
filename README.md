@@ -74,14 +74,6 @@ $ export PYTHONPATH=<TensorFlow models folder>/research:<TensorFlow models folde
 
 Create the train and test tfrecords from the Stanford Cars annotations. Their train/test split is about 50/50 which is slightly irregular these days. In the future, I'd like to change the scripts to use more of an 80/10/10 split instead but it's fine for now. You can create the label map using the script or use the labels file already provided for you in this git repository. 
 
-<<<<<<
-
-how to convert csv writer to use header row
-convert mat to csv file(s) so that it is human readable
-modify tf record creation to use the csv files
-
->>>>>>
-
 ```
 (tf) $ python create_stanford_cars_label_map.py <data folder>/cars_annos.mat
 (tf) $ python convert_mat_to_csv.py <data folder>/cars_annos.mat stanford_cars_labels.csv
