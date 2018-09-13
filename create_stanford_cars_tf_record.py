@@ -21,10 +21,9 @@ import os
 import hashlib
 import io
 import logging
+import csv
 
 import PIL.Image
-
-import scipy.io as sio
 
 import numpy as np
 
@@ -40,18 +39,19 @@ flags.DEFINE_string('data_dir','','Root directory to Stanford Cars dataset. (car
 flags.DEFINE_string('output_path','stanford_cars.tfrecord','Path to output TFRecord.')
 flags.DEFINE_string('label_map_path','stanford_cars_label_map.pbtxt','Path to label map proto.')
 flags.DEFINE_string('set','merged','Convert training set, test set, or merged set.')
+flags.DEFINE_string('csv','','Converted CSV labels file')
 
 FLAGS = flags.FLAGS
 
 SETS = ['train', 'test', 'merged']
 
 def dict_to_tf_example(annotation, dataset_directory, label_map_dict):
-  im_path = str(np.squeeze(annotation['relative_im_path']))
-  cls = np.squeeze(annotation['class'])
-  x1 = np.squeeze(annotation['bbox_x1'])
-  y1 = np.squeeze(annotation['bbox_y1'])
-  x2 = np.squeeze(annotation['bbox_x2'])
-  y2 = np.squeeze(annotation['bbox_y2'])
+  im_path = str(annotation['relative_im_path'])
+  cls = int(annotation['class'])
+  x1 = int(annotation['bbox_x1'])
+  y1 = int(annotation['bbox_y1'])
+  x2 = int(annotation['bbox_x2'])
+  y2 = int(annotation['bbox_y2'])
 
   # read image
   full_img_path = os.path.join(dataset_directory, im_path)
@@ -118,22 +118,23 @@ def main(_):
 
   train = FLAGS.set
   data_dir = FLAGS.data_dir
+  csv_file = FLAGS.csv
 
   writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
   label_map_dict = label_map_util.get_label_map_dict(FLAGS.label_map_path)
 
-  mat = sio.loadmat(os.path.join(data_dir,'cars_annos.mat'))
+  with open(csv_file) as f:
+    csv_reader = csv.DictReader(f)
+    for row in csv_reader:
+      test = int(row['test'])
+      if test:
+        testset = 'test'
+      else:
+        testset = 'train'
 
-  for annotation in mat['annotations'][0]:
-    test = np.squeeze(annotation['test'])
-    if test:
-      testset = 'test'
-    else:
-      testset = 'train'
- 
-    if train == 'merged' or train == testset:
-      tf_example = dict_to_tf_example(annotation, data_dir, label_map_dict)
-      writer.write(tf_example.SerializeToString())
+      if train == 'merged' or train == testset:
+        tf_example = dict_to_tf_example(row, data_dir, label_map_dict)
+        writer.write(tf_example.SerializeToString())
 
   writer.close()
 

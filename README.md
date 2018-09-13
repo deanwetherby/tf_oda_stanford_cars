@@ -11,7 +11,7 @@ This project is heavily dependent on the TensorFlow Object Detection API and all
 * Protobuf 3.0.0
 * Nvidia Cuda drivers
 * Tensorflow (>=1.9.0)
-* Clone TensorFlow models and examples repository
+* TensorFlow models and examples repository
 
 For a complete list, see [0].
 
@@ -45,26 +45,26 @@ The labels file (cars_annos.mat) needs to be in the same folder as the extracted
 
 ```
 $ git clone https://github.com/deanwetherby/tf_oda_stanford_cars
+$ cd tf_oda_stanford_cars
 ```
 
 ### Make a virtual environment with required packages
 
-I highly recommend using a Python 2 virtual environment called 'tf' which is short for TensorFlow. If you need help setting up a virtual environment, I suggest you visit Adrian Rosebrock's website called pyimagesearch.com[2].
+I highly recommend using a Python 2 virtual environment. If you need help setting up a virtual environment, I suggest you visit Adrian Rosebrock's website called pyimagesearch.com[2]. I made a TensorFlow environment (tf).
 
 The steps are essentially:
 ```
 $ mkvirtualenv tf -p python2
-(tf) $ cd <workspace>/tf_oda_stanford_cars
 (tf) $ pip install -r requirements.txt
 ```
 
-Be sure to clone the TensorFlow models github repository. We will refer to this location as the <TensorFlow models folder> which is different than the local 'models' folder.
+Be sure to also clone the TensorFlow models github repository to some other folder directory. We will refer to this location as the <TensorFlow models folder> which should be different than the local 'models' folder.
 
 ```
 $ git clone https://github.com/tensorflow/models 
 ```
 
-For the rest of this code, you need to either export the PYTHONPATH to point to the research and slim folders or you can provide the PYTHONPATH at the command line without exporting the variable.
+For the rest of this code, you need to either export the PYTHONPATH to point to the research and slim folders or you can provide the PYTHONPATH at the command line without having to export the variable.
 
 ```
 $ export PYTHONPATH=<TensorFlow models folder>/research:<TensorFlow models folder>/research/slim
@@ -72,13 +72,21 @@ $ export PYTHONPATH=<TensorFlow models folder>/research:<TensorFlow models folde
 
 ### Create tfrecords and labels file
 
-Create the train and test tfrecords from the Stanford Cars annotations. Their train/test split is about 50/50 which is slightly irregular these days. In the future, I'd like to change the scripts to use more of an 80/10/10 split instead but it's fine for now. You can create the label map using the script or use the labels file already provided for you in this git repository. This label creation script is very specific to the matlab format that Stanford Cars uses. 
+Create the train and test tfrecords from the Stanford Cars annotations. Their train/test split is about 50/50 which is slightly irregular these days. In the future, I'd like to change the scripts to use more of an 80/10/10 split instead but it's fine for now. You can create the label map using the script or use the labels file already provided for you in this git repository. 
 
+<<<<<<
+
+how to convert csv writer to use header row
+convert mat to csv file(s) so that it is human readable
+modify tf record creation to use the csv files
+
+>>>>>>
 
 ```
-(tf) $ python create_stanford_cars_tf_record.py --data_dir=<data folder> --set=train --output_path=stanford_cars_train.tfrecord
-(tf) $ python create_stanford_cars_tf_record.py --data_dir=<data folder> --set=test --output_path=stanford_cars_test.tfrecord
 (tf) $ python create_stanford_cars_label_map.py <data folder>/cars_annos.mat
+(tf) $ python convert_mat_to_csv.py <data folder>/cars_annos.mat stanford_cars_labels.csv
+(tf) $ python create_stanford_cars_tf_record.py --data_dir=<data folder> --set=train --output_path=stanford_cars_train.tfrecord --csv=stanford_cars_labels.csv
+(tf) $ python create_stanford_cars_tf_record.py --data_dir=<data folder> --set=test --output_path=stanford_cars_test.tfrecord --csv=stanford_cars_labels.csv
 ```
 
 (Optional) Test the creation of the train and test tfrecords by dumping their data to a temporary folder to ensure the tfreocrds have been written correctly.
@@ -102,11 +110,12 @@ Download a pretrained model from the model zoo [3] and untar to your tf_oda_stan
 
 Change the number of classes in the pipeline.config associated with your model to 196 to match the number of classes in Stanford Cars. Also update the paths to your fine tune checkpoint and labels file for both train and eval. 
 
-:exclamation: You will have to remove any references to "batch_norm_trainable: true" from the pipelin.config file. This feature has been deprecated and will prevent successful training.
+:exclamation: You will have to remove any references to "batch_norm_trainable: true" from the pipeline.config file. This feature has been deprecated and will prevent successful training.
+
+:grey_question: Depending on your GPU memory size, you may have to reduce the train_config.batch_size. A batch size of 24 works on an 8GB GTX 1080.
 
 Items to modify in the pipeline.config:
 * model.ssd.num_classes
-* train_config.batch_size
 * train_config.fine_tune_checkpoint
 * train_input_reader.label_map_path
 * train_input_reader.tf_record_input_reader
@@ -121,7 +130,7 @@ Use TensorFlow's model_main.py to train the model. This is TensorFlow's "easy" b
 This command uses the command line PYTHONPATH as opposed to exporting the variable. If you already exported the PYTHONPATH, you can ignore that portion.
 
 ```
-(tf) $ python <TensorFlow models folder>/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
+(tf) $ python <TensorFlow models folder>/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=100
 ```
 
 ### Convert the checkpoint to frozen graph (.pb file)
