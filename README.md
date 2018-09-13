@@ -9,7 +9,9 @@ This project is heavily dependent on the TensorFlow Object Detection API and all
 * Python 2.7
 * Python VirtualEnv and VirtualEnvWrapper
 * Protobuf 3.0.0
+* Nvidia Cuda drivers
 * Tensorflow (>=1.9.0)
+* Clone TensorFlow models and examples repository
 
 For a complete list, see [0].
 
@@ -17,18 +19,29 @@ For a complete list, see [0].
 
 ### Download the vehicle images 
 
-Download the Stanford Cars dataset.
+Download the Stanford Cars dataset (images and Matlab labels).
 
 ```
-http://imagenet.stanford.edu/internal/car196/car_ims.tgz
+$ wget http://imagenet.stanford.edu/internal/car196/car_ims.tgz
+$ wget http://imagenet.stanford.edu/internal/car196/cars_annos.mat 
 ```
 
 Unzip the tgz file into your data folder. 
 ```
-tar -xzvf car_ims.tgz -C <data folder>
+$ tar -xzvf car_ims.tgz -C <data folder>
 ```
 
-### Cloning the repository
+The labels file (cars_annos.mat) needs to be in the same folder as the extracted images.
+
+	.
+	|--- ...
+	|--- <Stanford cars data folder>
+	|    |--- cars_annos.mat
+	|    |--- car_ims
+	|         |--- <images>
+	|--- ...
+
+### Cloning this repository
 
 ```
 $ git clone https://github.com/deanwetherby/tf_oda_stanford_cars
@@ -45,9 +58,22 @@ $ mkvirtualenv tf -p python2
 (tf) $ pip install -r requirements.txt
 ```
 
+Be sure to clone the TensorFlow models github repository. We will refer to this location as the <TensorFlow models folder> which is different than the local 'models' folder.
+
+```
+$ git clone https://github.com/tensorflow/models 
+```
+
+For the rest of this code, you need to either export the PYTHONPATH to point to the research and slim folders or you can provide the PYTHONPATH at the command line without exporting the variable.
+
+```
+$ export PYTHONPATH=<TensorFlow models folder>/research:<TensorFlow models folder>/research/slim
+```
+
 ### Create tfrecords and labels file
 
 Create the train and test tfrecords from the Stanford Cars annotations. Their train/test split is about 50/50 which is slightly irregular these days. In the future, I'd like to change the scripts to use more of an 80/10/10 split instead but it's fine for now. You can create the label map using the script or use the labels file already provided for you in this git repository. This label creation script is very specific to the matlab format that Stanford Cars uses. 
+
 
 ```
 (tf) $ python create_stanford_cars_tf_record.py --data_dir=<data folder> --set=train --output_path=stanford_cars_train.tfrecord
@@ -66,24 +92,42 @@ Create the train and test tfrecords from the Stanford Cars annotations. Their tr
 
 ### Download pretrained model
 
-Download a pretrained model from the model zoo [3] and untar to your models folder. I used SSD MobileNet v2 for this project.
+Download a pretrained model from the model zoo [3] and untar to your tf_oda_stanford_cars/models folder. I used SSD MobileNet v2 for this project.
+
+```
+(tf) $ tar -xvf ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+```
 
 ### Modify the pipeline configuration file
 
-Change the number of classes in the pipeline.config associated with your model to 196 to match the number of classes in Stanford Cars. Also update the paths to your fine tune checkpoint and labels file for both train and eval. You will have to remove any references to "batch_norm_trainable: true" from the config file. This feature has been deprecated and will prevent success training.
+Change the number of classes in the pipeline.config associated with your model to 196 to match the number of classes in Stanford Cars. Also update the paths to your fine tune checkpoint and labels file for both train and eval. 
+
+:exclamation: You will have to remove any references to "batch_norm_trainable: true" from the pipelin.config file. This feature has been deprecated and will prevent successful training.
+
+Items to modify in the pipeline.config:
+* model.ssd.num_classes
+* train_config.batch_size
+* train_config.fine_tune_checkpoint
+* train_input_reader.label_map_path
+* train_input_reader.tf_record_input_reader
+* eval_input_reader.label_map_path
+* eval_input_reader.tf_record_input_reader
+
 
 ### Train the model
 
 Use TensorFlow's model_main.py to train the model. This is TensorFlow's "easy" button for training deep learning models. Be sure to replace the model folder with your path.
 
+This command uses the command line PYTHONPATH as opposed to exporting the variable. If you already exported the PYTHONPATH, you can ignore that portion.
+
 ```
-(tf) $ PYTHONPATH=<model folder>/research/:<model folder>/research/slim python <model folder>/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
+(tf) $ python <TensorFlow models folder>/research/object_detection/model_main.py --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --model_dir=output --num_train_steps=100000 --num_eval_steps=1000
 ```
 
 ### Convert the checkpoint to frozen graph (.pb file)
 
 ```
-(tf) $ python -u ~/workspace/models/research/object_detection/export_inference_graph.py --input_type=image_tensor --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix=output/model.ckpt-100000 --output_directory=./stanford_cars_inference_graph/
+(tf) $ python -u <TensorFlow models folder>/research/object_detection/export_inference_graph.py --input_type=image_tensor --pipeline_config_path=./models/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix=output/model.ckpt-100000 --output_directory=./stanford_cars_inference_graph/
 ```
 
 ## Evaluation
