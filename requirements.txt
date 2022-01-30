@@ -1,5 +1,5 @@
 Cython==0.27.3
-Pillow==4.2.1
+Pillow==9.0.0
 tensorflow-gpu==1.9.0
 scipy==0.19.0
 pycocotools==2.0.0
